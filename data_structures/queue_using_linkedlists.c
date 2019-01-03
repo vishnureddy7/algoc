@@ -1,10 +1,12 @@
+//libraries needed
 #include<stdio.h>
 #include<stdlib.h>
-#include<conio.h>
-#define TRUE 1
-#define MAX 10
-//assuming maximum size of queue is 10
 
+//assuming maximum size of queue is 10
+#define MAX 10
+#define TRUE 1
+
+//node structure
 typedef struct node{
 	int data;
 	struct node *next;
@@ -25,9 +27,9 @@ int main(){
 	printf("3--> Enqueue (Add an element to the Queue)\n");
 	printf("4--> Dequeue (Remove an element from the Queue)\n");
 	printf("q--> Exit\n");
-	printf("Please choose an Option");
+	printf("Please choose an option: ");
 	while(TRUE){
-		char choice=getch();
+		char choice=getchar();
 		switch(choice){
 			case '1':
 				display();
@@ -47,7 +49,7 @@ int main(){
 			default:
 				continue;
 		}
-		printf("\nPlease choose an Option");
+		printf("\nPlease choose an option: ");
 	}
 	return 0;
 }
@@ -59,7 +61,7 @@ int enqueue(){
 		return -1;
  	}
 	int data;
-	printf("\n\nEnter element to be inserted: ");
+	printf("\n\nEnter the element to be inserted: ");
 	scanf("%d",&data);
 	//allocate memory to new the element
 	node *new_ele=(node *)(malloc(sizeof(node)));
@@ -70,34 +72,34 @@ int enqueue(){
 		front=new_ele;
 		rear=new_ele;
 		num_ele=1;
-		printf("Element is Successfully inserted into the Queue.\n");
+		printf("Element is successfully inserted into the Queue.\n");
 		return 0;
 	}
 	//enqueue at front
 	front->next=new_ele;
 	front=new_ele;
 	num_ele++;
-	printf("Element is Successfully inserted into the Queue.\n");
+	printf("Element is successfully inserted into the Queue.\n");
 	return 0;
 }
 
 int dequeue(){
 	//check if queue is empty
 	if(rear==NULL){
-		printf("\n\nThe Queue is already empty, Can\'t dequeue.\n");
+		printf("\n\nThe Queue is already Empty, Can\'t Dequeue.\n");
 		return -1;
 	}
 	//dequeue at rear
 	node *temp=rear;
 	rear=rear->next;
-	printf("\n\nDequeued Element from the queue is: %d\n",temp->data);
+	printf("\n\nDequeued element from the Queue is: %d\n",temp->data);
 	free(temp);
 	num_ele--;
 	return 0;
 }
 
 int count(){
-	printf("\n\nThe number of elements in the queue is: %d\n",num_ele);
+	printf("\n\nThe number of elements in the Queue is: %d\n",num_ele);
 	return 0;
 }
 
@@ -117,4 +119,3 @@ int display(){
 	printf("NULL\n");
 	return 0;
 }
-
