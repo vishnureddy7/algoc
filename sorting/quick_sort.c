@@ -24,30 +24,27 @@ int main(){
 }
 
 int quick_sort(int *a,int low,int high){
+	printf("call %d %d\n",low,high);
 	if(low>=high){
 		return 0;
 	}
-	//consider mid as pivot
-	int pivot=a[(low+high)/2];
+	//consider first element as pivot
+	int pivot=a[low];
 	int i=low;
-	int j=high;
-	printArray(a+low,high+1);
+	int j=i+1;
 	//fix pivot position
-	while(i<j){
-		printArray(a+low,high+1);
-		while(i<=high && a[i]<pivot){
-			i++;
+	while(j<=high){
+		if(a[j]<=pivot){
+			i=i+1;
+			if(i!=j)
+				swap(a+i,a+j);
 		}
-		while(j>=low && a[j]>pivot){
-			j--;
-		}
-		if(i<j){
-			swap(a+i,a+j);	
-		}
+		j++;
 	}
+	swap(a+low,a+i);
 	//split
-	quick_sort(a,low,j-1);
-	quick_sort(a,j+1,high);
+	quick_sort(a,low,i-1);
+	quick_sort(a,i+1,high);
 	return 0;
 }
 
