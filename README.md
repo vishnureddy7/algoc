@@ -2,7 +2,8 @@
 <h2>Searching Algorithms</h2>
 <p>
   <ol>
-	<li>Linear Search</li>
+	<li>Linear Search Iterative</li>
+	<li>Linear Search Recursive(Using Divide and Concur Method)</li>
 	<li>Binary Search Iterative</li>
 	<li>Binary Search Recursive</li>
 	<li>Interpolation Search Iterative</li>
