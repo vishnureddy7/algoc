@@ -2,8 +2,8 @@
 
 int main(){
 	int n;
-	printf("\t\t\tLINEAR SEARCH\n");
-	printf("\t\t\t=============\n\n");
+	printf("\t\t\tLINEAR SEARCH(iterative)\n");
+	printf("\t\t\t=======================\n\n");
 	printf("Enter the size of the array: ");
 	scanf("%d",&n);
 	int a[n];
